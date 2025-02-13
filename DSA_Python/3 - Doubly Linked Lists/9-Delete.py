@@ -109,6 +109,21 @@ class DoublyLinkedList:
             self.length += 1
             return True
 
+    def delete(self, index):
+        if index not in range(self.length):
+            return None
+        if index == 0:
+            return self.pop_first()
+        if index == self.length - 1:
+            return self.pop()
+        temp = self.get(index)
+        temp.prev.next = temp.next
+        temp.next.prev = temp.prev
+        temp.next = None
+        temp.prev = None
+        self.length -= 1
+        return temp
+
 
 'EXAMPLE'
 my_linked_list = DoublyLinkedList(1)
@@ -120,9 +135,11 @@ my_linked_list.append(4)
 print("Complete list")
 my_linked_list.print_list()
 " Expected: {1, 2, 3, 4}"
-print("1st set_value = ", my_linked_list.insert(0, 18))
+my_linked_list.delete(2)
+print("1st delete = ")
 my_linked_list.print_list()
-" Expected: 1st set_value {18, 1, 2, 3, 4}"
-print("2nd set_value = ", my_linked_list.insert(3, 199))
+"Expected: 1st delete {1, 2, 4}"
+my_linked_list.delete(0)
+print("2nd delete = ")
 my_linked_list.print_list()
-" Expected: 2nd set_value {18, 1, 2, 199, 3, 4}"
+" Expected: 2nd delete {2, 4}"
