@@ -86,14 +86,14 @@ class DoublyLinkedList:
 
     def set_value(self, index, value):
         temp = self.get(index)
-        if temp.value:
+        if temp:
             temp.value = value
             return True
         return False
 
     def insert(self, index, value):
         new_node = Node(value)
-        if index not in (range(self.length)):
+        if index not in (range(self.length+1)):
             return False
         if index == 0:
             return self.prepend(value)
@@ -123,6 +123,6 @@ my_linked_list.print_list()
 print("1st set_value = ", my_linked_list.insert(0, 18))
 my_linked_list.print_list()
 " Expected: 1st set_value {18, 1, 2, 3, 4}"
-print("2nd set_value = ", my_linked_list.insert(3, 199))
+print("2nd set_value = ", my_linked_list.insert(5, 199))
 my_linked_list.print_list()
 " Expected: 2nd set_value {18, 1, 2, 199, 3, 4}"

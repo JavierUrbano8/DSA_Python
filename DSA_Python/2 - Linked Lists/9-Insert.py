@@ -108,7 +108,7 @@ my_linked_list.print_list()
 print("Inserted list")
 my_linked_list.insert(2, 1998)
 my_linked_list.print_list()
-"LL: {50, 100, 200, 1998, 400}"
+"LL: {50, 100, 1998, 400}"
 
 
 """
